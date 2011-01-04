@@ -55,4 +55,12 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <PropertyGroup>
+    <!-- Force visual studio to use external compiler and avoid cached files -->
+    <UseHostCompilerIfAvailable>False</UseHostCompilerIfAvailable>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>if $(ConfigurationName)==Debug "E:\Programming\C#\100501 IncreBuild\bin\Release\IncreBuild.exe" DEBUG "$(SolutionDir)"
+if $(ConfigurationName)==Release "E:\Programming\C#\100501 IncreBuild\bin\Release\IncreBuild.exe" RELEASE "$(SolutionDir)"</PreBuildEvent>
+  </PropertyGroup>
 </Project>
